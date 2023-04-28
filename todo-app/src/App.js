@@ -1,9 +1,19 @@
 
 
+// Components
+import Main from "./Components/Main";
+import Provider from "./Components/services";
+
+
 function App() {
+  
   return (
     <>
-    <h1>Helo</h1>
+  
+    <Provider>
+    <Main />
+    </Provider>
+
     </>
   );
 }
