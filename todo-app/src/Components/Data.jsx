@@ -21,12 +21,17 @@ const Make = styled(Box)`
 
     `
    
-    const deltevalue=()=>{
-        
-    }
+   
 
 const Data = ({id}) => {
-    const { show} = useContext(AppProvider)
+    const { show,item,setShow} = useContext(AppProvider)
+    
+    const deltevalue=(index)=>{
+        const UpdateItem=show.filter((item)=>{
+            return item.id !== index;
+        })
+        setShow(UpdateItem)
+    }
     return (
         <>
             <Components mt={8}align="center">
@@ -34,9 +39,9 @@ const Data = ({id}) => {
                     show.map((item,index) => {
                         return (
                             <>
-                                <Make key={index}>
+                                <Make key={index.id}>
                                     <Typography ml={10} sx={{ fontSize: "15px !important",align:"inherit", fontWeight:1000,fontFamily:"Arial",textAlign:"center", textTransform:"uppercase" }}>{item.name}</Typography>
-                                    <DeleteIcon sx={{ marginLeft: "250px", fontSize: "30px !important", color: "blue", cursor: "pointer" }} onClick={()=>deltevalue(id)} />
+                                    <DeleteIcon sx={{ marginLeft: "250px", fontSize: "30px !important", color: "blue", cursor: "pointer" }} onClick={()=>deltevalue(item.id)} />
                                     <Edit sx={{ marginLeft: "25px !important", fontSize: "30px !important", color: "blue", cursor: "pointer" }} />
                                     <br />
                                 </Make>
