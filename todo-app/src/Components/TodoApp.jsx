@@ -10,6 +10,7 @@ const Components = styled(Box)`
         display:flex;
         justify-content:center;
         align-items:space-between;
+        
         `
 const Input = styled(TextField)`
         width:30%;
@@ -36,7 +37,7 @@ const Todo = () => {
 
     const handleClick = (e) => {
         if (!item) {
-            alert("Are you sure") 
+            alert("please Enter a valid value !!") 
         }
         else if(item && toggle){
             setShow(
